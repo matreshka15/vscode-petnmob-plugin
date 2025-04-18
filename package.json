@@ -13,7 +13,12 @@
         "onCommand:extension.feedPet",
         "onCommand:extension.restPet",
         "onCommand:extension.explorePet",
-        "onView:petView"
+        "onCommand:extension.plowLand",
+        "onCommand:extension.selectCarrot",
+        "onCommand:extension.selectPotato",
+        "onCommand:extension.waterCrop",
+        "onCommand:extension.fertilize",
+        "onCommand:extension.viewWarehouse"
     ],
     "main": "./out/extension.js",
     "contributes": {
@@ -39,10 +44,34 @@
             {
                 "command": "extension.explorePet",
                 "title": "派遣宠物探险"
+            },
+            {
+                "command": "extension.plowLand",
+                "title": "宠物犁地"
+            },
+            {
+                "command": "extension.selectCarrot",
+                "title": "选择胡萝卜种子"
+            },
+            {
+                "command": "extension.selectPotato",
+                "title": "选择土豆种子"
+            },
+            {
+                "command": "extension.waterCrop",
+                "title": "给作物浇水"
+            },
+            {
+                "command": "extension.fertilize",
+                "title": "给土地施肥"
+            },
+            {
+                "command": "extension.viewWarehouse",
+                "title": "查看仓库"
             }
         ],
         "menus": {
-            "view/title": [
+            "view/item/context": [
                 {
                     "command": "extension.feedPet",
                     "when": "view == petView",
@@ -57,12 +86,42 @@
                     "command": "extension.explorePet",
                     "when": "view == petView",
                     "group": "navigation"
+                },
+                {
+                    "command": "extension.plowLand",
+                    "when": "view == petView",
+                    "group": "navigation"
+                },
+                {
+                    "command": "extension.selectCarrot",
+                    "when": "view == petView",
+                    "group": "navigation"
+                },
+                {
+                    "command": "extension.selectPotato",
+                    "when": "view == petView",
+                    "group": "navigation"
+                },
+                {
+                    "command": "extension.waterCrop",
+                    "when": "view == petView",
+                    "group": "navigation"
+                },
+                {
+                    "command": "extension.fertilize",
+                    "when": "view == petView",
+                    "group": "navigation"
+                },
+                {
+                    "command": "extension.viewWarehouse",
+                    "when": "view == petView",
+                    "group": "navigation"
                 }
             ]
         }
     },
     "scripts": {
-        "prepublishOnly": "npm run compile",
+        "vscode:prepublish": "npm run compile",
         "compile": "tsc -p ./",
         "watch": "tsc -watch -p ./",
         "pretest": "npm run compile && npm run lint",
@@ -82,4 +141,4 @@
         "typescript": "^4.7.4",
         "@vscode/test-electron": "^2.1.3"
     }
-}
+}    
